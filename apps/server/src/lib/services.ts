@@ -20,7 +20,11 @@ export const twilio = () => {
   //   }
 
   if (!env.TWILIO_ACCOUNT_SID || !env.TWILIO_AUTH_TOKEN || !env.TWILIO_PHONE_NUMBER) {
-    throw new Error('Twilio is not configured correctly');
+    console.warn('[TWILIO] Not configured — SMS features disabled');
+    return {
+      send: async (to: string, body: string) =>
+        console.log(`[TWILIO:DISABLED] Would send to ${to}: ${body}`),
+    };
   }
 
   const send = async (to: string, body: string) => {

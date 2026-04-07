@@ -1,12 +1,13 @@
 {
-  "name": "Zero",
-  "short_name": "0",
-  "description": "Zero - the first open source email app that puts your privacy and safety first.",
+  "name": "SwipeInbox",
+  "short_name": "Swipe",
+  "description": "Tinder-style email triage — swipe your inbox to zero in 5 minutes.",
   "scope": "/",
-  "start_url": "/mail/inbox",
+  "start_url": "/swipe",
   "display": "standalone",
-  "background_color": "#000",
-  "theme_color": "#fff",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#7c3aed",
   "icons": [
     {
       "src": "/icons-pwa/icon-512.png",
