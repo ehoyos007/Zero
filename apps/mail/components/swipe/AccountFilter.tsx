@@ -1,14 +1,8 @@
 import { cn } from '@/lib/utils';
-
-interface Account {
-  id: string;
-  email: string;
-  label: string;
-  color: string;
-}
+import type { SwipeAccount } from './types';
 
 interface AccountFilterProps {
-  accounts: Account[];
+  accounts: SwipeAccount[];
   selectedAccountId: string | null; // null = "All"
   onSelect: (accountId: string | null) => void;
 }

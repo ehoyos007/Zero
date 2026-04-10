@@ -7,16 +7,16 @@ import {
 } from 'framer-motion';
 import { useCallback, useRef } from 'react';
 import { EmailCard } from './EmailCard';
-import type { MockEmail } from './mock-data';
+import type { SwipeEmail } from './types';
 import { Check, X, Star } from 'lucide-react';
 
 export type SwipeAction = 'archive' | 'delete' | 'star';
 
 interface SwipeCardStackProps {
-  emails: MockEmail[];
-  onSwipe: (email: MockEmail, action: SwipeAction) => void;
-  onTap?: (email: MockEmail) => void;
-  onLongPress?: (email: MockEmail) => void;
+  emails: SwipeEmail[];
+  onSwipe: (email: SwipeEmail, action: SwipeAction) => void;
+  onTap?: (email: SwipeEmail) => void;
+  onLongPress?: (email: SwipeEmail) => void;
 }
 
 const SWIPE_THRESHOLD = 0.3; // 30% of card width

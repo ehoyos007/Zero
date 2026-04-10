@@ -1,7 +1,7 @@
 import { type RouteConfig, index, layout, prefix, route } from '@react-router/dev/routes';
 
 export default [
-  index('page.tsx'),
+  index('swipe-root.tsx'),
   route('/home', 'home/page.tsx'),
 
   route('/api/mailto-handler', 'mailto-handler.ts'),

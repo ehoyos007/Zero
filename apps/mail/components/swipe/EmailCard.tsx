@@ -1,4 +1,4 @@
-import { type MockEmail, getRelativeTime } from './mock-data';
+import type { SwipeEmail } from './types';
 
 function getInitials(name: string): string {
   return name
@@ -27,8 +27,21 @@ function getAvatarColor(name: string): string {
   return colors[Math.abs(hash) % colors.length]!;
 }
 
+function getRelativeTime(date: Date): string {
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+  if (seconds < 60) return 'just now';
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return `${minutes}m ago`;
+  const h = Math.floor(minutes / 60);
+  if (h < 24) return `${h}h ago`;
+  const d = Math.floor(h / 24);
+  if (d === 1) return 'yesterday';
+  if (d < 7) return `${d}d ago`;
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
 interface EmailCardProps {
-  email: MockEmail;
+  email: SwipeEmail;
   className?: string;
 }
 
@@ -54,8 +67,8 @@ export function EmailCard({ email, className = '' }: EmailCardProps) {
         </div>
         <div
           className="mt-1 h-3 w-3 shrink-0 rounded-full"
-          style={{ backgroundColor: email.accountColor }}
-          title={email.accountEmail}
+          style={{ backgroundColor: email.connectionColor }}
+          title={email.connectionEmail}
         />
       </div>
 
